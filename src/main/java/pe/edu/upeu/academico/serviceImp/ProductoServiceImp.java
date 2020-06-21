@@ -21,38 +21,30 @@ public class ProductoServiceImp implements ProductoService{
 		// TODO Auto-generated method stub
 		return (List<Producto>) prodao.findAll();
 	}
-
 	@Override
 	@Transactional(readOnly = true)
 	public Producto findById(Long id) {
 		// TODO Auto-generated method stub
 		return prodao.findById(id).orElse(null);
 	}
-
 	@Override
 	@Transactional
 	public Producto save(Producto producto) {
 		// TODO Auto-generated method stub
 		return prodao.save(producto);
 	}
-
 	@Override
 	@Transactional
 	public void delete(Long id) {
 		prodao.deleteById(id);
-		// TODO Auto-generated method stub
-		
 	}
-
 	@Override
 	@Transactional
 	public void Update(Producto producto, long id) {
 		prodao.findById(id).ifPresent((x)->{
 			producto.setId(id);
 			prodao.save(producto);
-		});
-		// TODO Auto-generated method stub
-		
+		});		// TODO Auto-generated method stub		
 	}
 	
 }

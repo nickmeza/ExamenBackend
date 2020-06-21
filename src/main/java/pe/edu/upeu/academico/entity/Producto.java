@@ -23,6 +23,12 @@ public class Producto implements Serializable{
 	private String nombreprod;
 	@Column(name = "precio")
 	private float precio;
+	@Column(name = "cantidad")
+	private int cantidad;
+	@ManyToOne
+	@JoinColumn(name="CAT_ID")
+	private Categoria categoria;
+	
 	public Categoria getCategoria() {
 		return categoria;
 	}
@@ -30,14 +36,7 @@ public class Producto implements Serializable{
 	public void setCategoria(Categoria categoria) {
 		this.categoria = categoria;
 	}
-
-	@Column(name = "cantidad")
-	private int cantidad;
 	
-	@ManyToOne
-	@JoinColumn(name="CAT_ID")
-	private Categoria categoria;
-
 	public long getId() {
 		return id;
 	}

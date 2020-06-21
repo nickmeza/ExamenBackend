@@ -22,7 +22,7 @@ public class CategoriaRestController {
 	@Autowired
 	private CategoriaService categoriaService;
 	
-	@GetMapping("/categorias")
+	@GetMapping("/categoria")
 	public List<Categoria> readAll(){
 		return categoriaService.findAll();
 	}
